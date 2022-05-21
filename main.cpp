@@ -14,6 +14,7 @@ public:
 		}
 	}
 
+	/** Read the memory */
 	char operator[](int Address) const
 	{
 		if (Address < MAX_MEM) {
@@ -21,7 +22,7 @@ public:
 		}
 	}
 
-	/** write 1 byte */
+	/** Write to the memory */
 	char& operator[](int Address)
 	{
 		if (Address < MAX_MEM) {
@@ -75,7 +76,7 @@ public:
 			} break;
 			case INS_JML:
 			{
-				FuturePos = mem.Data[Pos + 2];
+				FuturePos = mem.Data[FuturePos];
 				InsToExec--;
 			} break;
 			case INS_NOP:
